@@ -1,70 +1,71 @@
-# Getting Started with Create React App
+Panduan ini akan membantu Anda menginstal dan menjalankan proyek ini di lingkungan lokal.
+Proyek ini menggunakan React untuk frontend, PostgreSQL untuk database, dan Cloudinary untuk penyimpanan media.
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+1. Persyaratan
+Pastikan Anda telah menginstal:
 
-## Available Scripts
+Node.js (minimal versi 16)
+PostgreSQL (minimal versi 13)
+Git
+Cloudinary Account (untuk penyimpanan media)
 
-In the project directory, you can run:
+2. Clone Repository
+Pertama, buka terminal dan jalankan perintah berikut untuk menduplikasi proyek ke komputer Anda:
 
-### `npm start`
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+git clone https://github.com/username/project-name.git
+Ganti username dan project-name sesuai dengan repository GitHub Anda.
+Lalu masuk ke folder proyek:
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
 
-### `npm test`
+cd project-name
+3. Instalasi Dependency
+Jalankan perintah berikut untuk menginstal semua package yang diperlukan:
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
 
-### `npm run build`
+npm install
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+4. Konfigurasi Database (PostgreSQL)
+a. Buat Database
+Buka PostgreSQL dan buat database baru
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+createdb nama_database
+Atau gunakan pgAdmin untuk membuat database secara visual.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+b. Konfigurasi .env
+Buat file .env di root folder proyek, lalu isi dengan konfigurasi database Anda:
 
-### `npm run eject`
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+DATABASE_URL=postgres://username:password@localhost:5432/nama_database
+Ganti username, password, dan nama_database sesuai dengan PostgreSQL Anda.
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+c. Migrasi Database
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+5. Konfigurasi Cloudinary
+Buat akun di Cloudinary, lalu dapatkan Cloud Name, API Key, dan API Secret.
 
-## Learn More
+Tambahkan informasi ini ke file .env:
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+CLOUDINARY_CLOUD_NAME=your-cloud-name
+CLOUDINARY_API_KEY=your-api-key
+CLOUDINARY_API_SECRET=your-api-secret
 
-### Code Splitting
+6. Jalankan Server API 
+proyek ini memiliki backend, jalankan server backend terlebih dahulu:
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+node src\Server.js
 
-### Analyzing the Bundle Size
+7. Menjalankan Proyek
+Sekarang jalankan proyek dengan perintah:
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
 
-### Making a Progressive Web App
+npm run start
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
 
-### Advanced Configuration
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
 
-### Deployment
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+Jika semuanya berjalan dengan baik, buka browser dan akses:
+👉 http://localhost:3000/
